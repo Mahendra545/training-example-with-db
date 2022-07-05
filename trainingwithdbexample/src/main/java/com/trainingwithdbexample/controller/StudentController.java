@@ -13,6 +13,7 @@ public class StudentController {
 
 	@Autowired
 	StudentService studentService;
+	
 	@PostMapping("/student/details")
 	public String addStudentDetails(@RequestBody Student student)
 	{
