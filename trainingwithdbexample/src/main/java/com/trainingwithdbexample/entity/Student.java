@@ -29,7 +29,14 @@ public class Student {
 	@Email(message = "Please enter the valid mail id")
 	private String email;
 	private String fatherName;
+	private String motherName;
 	
+	public String getMotherName() {
+		return motherName;
+	}
+	public void setMotherName(String motherName) {
+		this.motherName = motherName;
+	}
 	public String getFatherName() {
 		return fatherName;
 	}

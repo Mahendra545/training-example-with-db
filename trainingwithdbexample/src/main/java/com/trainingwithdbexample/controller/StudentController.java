@@ -1,7 +1,11 @@
 package com.trainingwithdbexample.controller;
 
+import java.sql.SQLSyntaxErrorException;
+
 import javax.validation.Valid;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -22,9 +26,9 @@ public class StudentController {
 
 	@Autowired
 	StudentService studentService;
-	
+	private final Logger logger = LogManager.getLogger(StudentController.class);
 	@PostMapping("/student/details")
-	public String addStudentDetails(@Valid @RequestBody Student student)
+	public String addStudentDetails(@Valid @RequestBody Student student) throws SQLSyntaxErrorException
 	{
 		studentService.addStudentDetails(student);
 		return student.getName()+" added successfully";
